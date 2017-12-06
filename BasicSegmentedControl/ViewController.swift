@@ -10,16 +10,32 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - view did load
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        secondView.isHidden = true
+    
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: - outlets
+    
+    @IBOutlet weak var firstView: UIView!
+    @IBOutlet weak var secondView: UIView!
+    
+    // MARK: - interactions
+    
+    @IBAction func tapSegmentedControl(_ sender: Any) {
+        if (sender as AnyObject).selectedSegmentIndex == 0 {
+            firstView.isHidden = false
+            secondView.isHidden = true
+        }
+        
+        else {
+            firstView.isHidden = true
+            secondView.isHidden = false
+        }
     }
-
-
+    
+    
 }
 
